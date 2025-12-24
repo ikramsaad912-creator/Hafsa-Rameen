@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Surprise 🎉</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top, #ffdde1, #ee9ca7);
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.95);
+    padding: 35px 30px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+    animation: pop 1s ease forwards;
+    max-width: 320px;
+  }
+
+  @keyframes pop {
+    0% { transform: scale(0.6); opacity: 0; }
+    70% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+  }
+
+  h1 {
+    margin: 0 0 12px;
+    font-size: 26px;
+    background: linear-gradient(90deg, #ff4d6d, #ff8fab);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    color: #444;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* Floating hearts */
+  .heart {
+    position: absolute;
+    bottom: -20px;
+    color: #ff4d6d;
+    font-size: 18px;
+    animation: floatUp linear infinite;
+    opacity: 0.8;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-110vh) scale(1.6); opacity: 0; }
+  }
+
+  /* Confetti dots */
+  .confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    top: -10px;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    to { transform: translateY(110vh) rotate(360deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Happy Birthday<br>Hafsa Rameen 🎉</h1>
+  <p>
+    Today isn’t just a date,<br>
+    it’s a reminder that the world became brighter ✨<br><br>
+    May your smile stay the same,<br>
+    and your days get even better 💖
+  </p>
+</div>
+
+<script>
+// Floating hearts
+for (let i = 0; i < 15; i++) {
+  const h = document.createElement('div');
+  h.className = 'heart';
+  h.innerHTML = '❤';
+  h.style.left = Math.random() * 100 + 'vw';
+  h.style.animationDuration = 4 + Math.random() * 4 + 's';
+  h.style.fontSize = 14 + Math.random() * 20 + 'px';
+  document.body.appendChild(h);
+}
+
+// Confetti
+const colors = ['#ff4d6d', '#ffd166', '#06d6a0', '#4d96ff'];
+for (let i = 0; i < 30; i++) {
+  const c = document.createElement('div');
+  c.className = 'confetti';
+  c.style.left = Math.random() * 100 + 'vw';
+  c.style.background = colors[Math.floor(Math.random() * colors.length)];
+  c.style.animationDuration = 3 + Math.random() * 3 + 's';
+  document.body.appendChild(c);
+}
+</script>
+
+</body>
+</html>
